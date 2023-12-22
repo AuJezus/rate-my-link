@@ -1,7 +1,6 @@
 "use client";
 
 import React, { FC } from "react";
-import { FaArrowRight } from "react-icons/fa";
 import { RiDislikeFill, RiHeartFill } from "react-icons/ri";
 
 interface LinkContentProps {}
@@ -9,17 +8,17 @@ interface LinkContentProps {}
 const LinkContent: FC<LinkContentProps> = ({}) => {
   return (
     <div>
-      <div className="flex items-center relative mb-12">
+      <div className="relative mb-12 flex items-center">
         <iframe
           id="frame"
           title="Website Preview"
           src={"https://tailwindcss.com/docs/customizing-colors"}
-          className="w-full h-[75vh]"
+          className="h-[75vh] w-full"
         />
-        <button className="hover:bg-rose-600 bg-neutral-900 w-20 border-2 text-neutral-100 border-rose-600 absolute bottom-0 translate-y-1/2 aspect-square flex rounded-full items-center justify-center gap-x-2 p-1 text-2xl left-0 -translate-x-1/2 font-medium align-middle flex-wrap">
+        <button className="absolute bottom-0 left-0 flex aspect-square w-20 -translate-x-1/2 translate-y-1/2 flex-wrap items-center justify-center gap-x-2 rounded-full border-2 border-rose-600 bg-neutral-900 p-1 align-middle text-2xl font-medium text-neutral-100 hover:bg-rose-600">
           <RiDislikeFill /> 189
         </button>
-        <button className="hover:bg-emerald-600 bg-neutral-900 w-20 border-2 text-neutral-100 border-emerald-600 absolute bottom-0 translate-y-1/2 aspect-square flex rounded-full items-center justify-center gap-x-2 p-1 text-2xl right-0 translate-x-1/2 font-medium align-middle flex-wrap">
+        <button className="absolute bottom-0 right-0 flex aspect-square w-20 translate-x-1/2 translate-y-1/2 flex-wrap items-center justify-center gap-x-2 rounded-full border-2 border-emerald-600 bg-neutral-900 p-1 align-middle text-2xl font-medium text-neutral-100 hover:bg-emerald-600">
           <RiHeartFill /> 100
         </button>
       </div>
