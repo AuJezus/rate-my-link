@@ -40,7 +40,7 @@ export const NavBar: FC<NavBarProps> = ({ session }) => {
           </li>
           <li>
             <Link
-              href="/newLink"
+              href="/new"
               className="flex items-center gap-2 text-lg font-medium text-neutral-300 hover:text-neutral-100"
             >
               New Link <MdOutlineAddLink />
@@ -58,7 +58,7 @@ export const NavBar: FC<NavBarProps> = ({ session }) => {
                   />
                 </div>
                 <Link
-                  href="/profile"
+                  href={`/profile/${session.user.id}`}
                   className="text-lg font-medium text-neutral-300 hover:text-neutral-100"
                 >
                   AuJezus

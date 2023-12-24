@@ -1,12 +1,28 @@
+import { Database } from "@/types_db";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import React, { FC } from "react";
+import { cookies } from "next/headers";
+import { z } from "zod";
+import { redirect } from "next/navigation";
 
 const New = () => {
   async function createLink(formData: FormData) {
-    const rawFormData = {
+    "use server";
+    const supabase = createServerComponentClient<Database>({ cookies });
+    const CreateLink = z.object({
+      title: z.string(),
+      url: z.string(),
+      description: z.string(),
+    });
+
+    const data = CreateLink.parse({
       title: formData.get("title"),
       url: formData.get("url"),
       description: formData.get("description"),
-    };
+    });
+
+    const { error } = await supabase.from("links").insert(data);
+    redirect("/");
   }
 
   return (
@@ -51,7 +67,6 @@ const New = () => {
         >
           Link description
           <textarea
-            required
             rows={8}
             id="description"
             name="description"
